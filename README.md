@@ -1,4 +1,6 @@
 # Privatisation_Database
+# 🏞️ At-Risk Federal Land: Identifying Privatization Candidates
+
 This project analyzes publicly available federal property data to identify parcels of land that may be at risk of privatization. It focuses on converting and visualizing geospatial data to support public transparency and further research.
 
 ---
@@ -12,8 +14,7 @@ To explore patterns and characteristics of federal land that has been marked as 
 ## 🧠 Methodology
 
 1. **Data Conversion**
-   - Extracted raw data from a `.db` (SQLite) file
-   - Converted the `at_risk_parcels` table into CSV for wider accessibility
+   - Cleaned and structured the `at_risk_parcels` dataset for analysis
 
 2. **Keyword Extraction**
    - Used NLP techniques to extract key terms from property descriptions and agency reports
@@ -23,16 +24,15 @@ To explore patterns and characteristics of federal land that has been marked as 
    - For records with missing or ambiguous coordinates, LLMs were used to predict **latitude and longitude** based on location metadata (e.g., parcel name, county, state)
 
 4. **Mapping**
-   - Cleaned dataset uploaded to [Kepler.gl](https://kepler.gl/) for interactive geospatial visualization
+   - Uploaded the dataset to [Kepler.gl](https://kepler.gl/) for interactive geospatial visualization
    - Color-coded by agency or land type
 
 ---
 
 ## 📦 Files
 
-- `frpp_at_risk.db` – Raw SQLite database containing the source data
 - `at_risk_parcels.csv` – Cleaned and geolocated dataset
-- `visualization.png` – Map-based or data visualization (add yours here)
+- `visualization.png` – Map-based or data visualization
 
 ---
 
@@ -44,8 +44,7 @@ To explore patterns and characteristics of federal land that has been marked as 
 
 ## 🧰 Tools Used
 
-- **SQLite3** – for raw data handling
-- **Python (pandas, sqlite3)** – to extract and convert tables
+- **Python (pandas, sqlite3)** – to extract and transform data
 - **OpenAI / Transformers** – for LLM-based inference
 - **spaCy / KeyBERT** – for keyword and topic extraction
 - **Kepler.gl** – for interactive mapping and filtering
@@ -55,19 +54,19 @@ To explore patterns and characteristics of federal land that has been marked as 
 
 ## 🗂️ Table Schema
 
-The main table `at_risk_parcels` contains:
+The dataset `at_risk_parcels.csv` contains:
 
-| Column Name       | Description                          |
-|-------------------|--------------------------------------|
-| `id`              | Unique identifier                    |
-| `parcel_name`     | Name of the land parcel              |
-| `agency`          | Owning federal agency                |
-| `state`           | U.S. state where parcel is located   |
-| `county`          | County name                          |
-| `latitude`        | Latitude coordinate (predicted if missing) |
-| `longitude`       | Longitude coordinate (predicted if missing) |
-| `land_type`       | Type of land (BLM, USFS, etc.)       |
-| `acres`           | Parcel size in acres                 |
+| Column Name       | Description                                   |
+|-------------------|-----------------------------------------------|
+| `id`              | Unique identifier                             |
+| `parcel_name`     | Name of the land parcel                       |
+| `agency`          | Owning federal agency                         |
+| `state`           | U.S. state where parcel is located            |
+| `county`          | County name                                   |
+| `latitude`        | Latitude coordinate (predicted if missing)    |
+| `longitude`       | Longitude coordinate (predicted if missing)   |
+| `land_type`       | Type of land (BLM, USFS, etc.)                |
+| `acres`           | Parcel size in acres                          |
 
 ---
 
@@ -93,3 +92,7 @@ This dataset is compiled from the **Federal Real Property Profile (FRPP)** and l
 - Automate LLM-based location inference for new parcels
 
 ---
+
+## 🛡️ License
+
+This project is open source and available under the [MIT License](LICENSE).
