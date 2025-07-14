@@ -90,9 +90,3 @@ This dataset is compiled from the **Federal Real Property Profile (FRPP)** and l
 - Add historical trends in property transfers
 - Cross-reference with political or environmental risk zones
 - Automate LLM-based location inference for new parcels
-
----
-
-## 🛡️ License
-
-This project is open source and available under the [MIT License](LICENSE).
